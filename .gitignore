@@ -1,0 +1,15 @@
+
+# Ignore the .clasp folder (used by Google Apps Script CLI)
+.clasp/
+
+# Ignore project-specific settings, build artifacts, etc.
+.idea/
+.vscode/
+node_modules/
+
+# Ignore any log files or environment-specific files
+*.log
+*.env
+
+# Ignore local configuration files
+*.local

@@ -1,0 +1,23 @@
+{
+    "timeZone": "Asia/Singapore",
+    "dependencies": {
+      "enabledAdvancedServices": [
+        {
+          "userSymbol": "BigQuery",
+          "version": "v2",
+          "serviceId": "bigquery"
+        }
+      ]
+    },
+    "oauthScopes": [
+      "https://www.googleapis.com/auth/spreadsheets.currentonly",
+      "https://www.googleapis.com/auth/script.external_request",
+      "https://www.googleapis.com/auth/cloud-platform"
+    ],
+    "exceptionLogging": "STACKDRIVER",
+    "runtimeVersion": "V8",
+    "webapp": {
+      "executeAs": "USER_DEPLOYING",
+      "access": "MYSELF"
+    }
+  }
