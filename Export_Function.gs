@@ -1,3 +1,31 @@
+function exportToGoogleDoc() {
+  // Get the active Google Sheets document
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const range = Browser.inputBox('Enter the range of data (e.g., A2:D10):');
+  if (!range) {
+    Browser.msgBox('No range entered. Please try again.');
+    return;
+  }
+
+  var data = sheet.getRange(range).getValues(); // Get data from the range
+
+  
+  // Create a new Google Doc
+  var doc = DocumentApp.create('AutoGen Doc - GDG Dev Fest KL 2024');
+  var body = doc.getBody();
+  
+  // Loop through each row and column to write the data to the Google Doc
+  for (var i = 0; i < data.length; i++) {
+    var row = data[i];
+    var rowText = row.join(' | '); // Use '|' to separate the cells in each row (you can change it to any separator you like)
+    body.appendParagraph(rowText); // Add the row data to the document
+  }
+  
+  // Log the URL of the generated Google Doc
+  Logger.log('Google Doc created: ' + doc.getUrl());
+}
+
+
 function exportToSlides() {
   // 1. Prompt the user for the data range and validate input
   const range = Browser.inputBox('Enter the range of data (e.g., A2:D10):');

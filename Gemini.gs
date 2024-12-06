@@ -47,7 +47,7 @@ function askGemini(inputText) {
   return fetchDataFromGemini(url, options);
 }
 
-function askGeminiAdvanced(inputText,temperature,topP,maxOutputTokens) {
+function askGeminiAdvanced(inputText,temperature,topP,topK,maxOutputTokens) {
   const token = getOAuthToken();
   if (!token) return "ERROR: Missing OAuth token";
 
@@ -58,9 +58,10 @@ function askGeminiAdvanced(inputText,temperature,topP,maxOutputTokens) {
       parts: [{ "text": inputText }]
     },
     generation_config: {
-      temperature:temperature,
-      topP: topP,
-      maxOutputTokens: maxOutputTokens
+      temperature:parseFloat(temperature),
+      topP: parseFloat(topP),
+      topK: parseFloat(topK),
+      maxOutputTokens: parseInt(maxOutputTokens)
     }
   };
 

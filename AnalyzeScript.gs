@@ -42,7 +42,7 @@ function analyzeData(rangeCell, promptCell, dataType) {
 }
 
 // General function to analyze various types of data based on the range and prompt
-function analyzeDataAdvanced(rangeCell, promptCell, dataType,temperature,topP,maxOutputTokens) {
+function analyzeDataAdvanced(rangeCell, promptCell, dataType,temperature,topP,topK,maxOutputTokens) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   
   // Get the values from the user-provided range
@@ -79,7 +79,7 @@ function analyzeDataAdvanced(rangeCell, promptCell, dataType,temperature,topP,ma
   const prompt = promptCell + '\n\n' + formattedData;
   
   // Call the Gemini API for insights
-  const insights = askGeminiAdvanced(prompt,temperature,topP,maxOutputTokens); 
+  const insights = askGeminiAdvanced(prompt,temperature,topP,topK,maxOutputTokens); 
   
   return insights;
 }
